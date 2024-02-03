@@ -4,7 +4,7 @@
 #BEEP CARD
 def get_fare(source, destination):
     fare_prices = {
-        ('roosevelt','roosevelt'): 13 ,
+        ('roosevelt','roosevelt'): 0 ,
         ('roosevelt','balintawak'): 16 ,
         ('roosevelt','monumento'): 18 ,
         ('roosevelt','5th avenue'): 20 ,
@@ -25,7 +25,7 @@ def get_fare(source, destination):
         ('roosevelt','edsa'): 34 ,
         ('roosevelt','baclaran'): 35 ,
         ('balintawak','roosevelt'): 16,
-        ('balintawak','balintawak'): 13 ,
+        ('balintawak','balintawak'): 0 ,
         ('balintawak','monumento'): 16 ,
         ('balintawak','5th avenue'): 17 ,
         ('balintawak','r.papa'): 18 ,
@@ -46,7 +46,7 @@ def get_fare(source, destination):
         ('balintawak','baclaran'): 33 ,
         ('monumento','roosevelt'): 18 ,
         ('monumento','balintawak'): 16 ,
-        ('monumento','monumento'): 13 ,
+        ('monumento','monumento'): 0 ,
         ('monumento','5th avenue'): 15 ,
         ('monumento','r.papa'): 16 ,
         ('monumento','abad santos'): 17 ,
@@ -67,7 +67,7 @@ def get_fare(source, destination):
         ('5th avenue','roosevelt'): 20 ,
         ('5th avenue','balintawak'): 17 ,
         ('5th avenue','monumento'): 15 ,
-        ('5th avenue','5th avenue'): 13 ,
+        ('5th avenue','5th avenue'): 0 ,
         ('5th avenue','r.papa'): 14 ,
         ('5th avenue','abad santos'): 15 ,
         ('5th avenue','blumentrit'): 16 ,
@@ -88,7 +88,7 @@ def get_fare(source, destination):
         ('r.papa','balintawak'): 18 ,
         ('r.papa','monumento'): 16 ,
         ('r.papa','5th avenue'): 14 ,
-        ('r.papa','r.papa'): 13 ,
+        ('r.papa','r.papa'): 0 ,
         ('r.papa','abad santos'): 14 ,
         ('r.papa','blumentrit'): 15 ,
         ('r.papa','tayuman'): 16 ,
@@ -109,7 +109,7 @@ def get_fare(source, destination):
         ('abad santos','monumento'): 17 ,
         ('abad santos','5th avenue'): 15 ,
         ('abad santos','r.papa'): 14 ,
-        ('abad santos','abad santos'): 13 ,
+        ('abad santos','abad santos'): 0 ,
         ('abad santos','blumentrit'): 14 ,
         ('abad santos','tayuman'): 15 ,
         ('abad santos','bambang'): 16 ,
@@ -130,7 +130,7 @@ def get_fare(source, destination):
         ('blumentrit','5th avenue'): 16 ,
         ('blumentrit','r.papa'): 15 ,
         ('blumentrit','abad santos'): 14 ,
-        ('blumentrit','blumentrit'): 13 ,
+        ('blumentrit','blumentrit'): 0 ,
         ('blumentrit','tayuman'): 14 ,
         ('blumentrit','bambang'): 15 ,
         ('blumentrit','doroteo Jose'): 16 ,
@@ -151,7 +151,7 @@ def get_fare(source, destination):
         ('tayuman','r.papa'): 16 ,
         ('tayuman','abad santos'): 15 ,
         ('tayuman','blumentrit'): 14 ,
-        ('tayuman','tayuman'): 13 ,
+        ('tayuman','tayuman'): 0 ,
         ('tayuman','bambang'): 14 ,
         ('tayuman','doroteo Jose'): 15 ,
         ('tayuman','carriedo'): 16 ,
@@ -172,7 +172,7 @@ def get_fare(source, destination):
         ('bambang','abad santos'): 16 ,
         ('bambang','blumentrit'): 15 ,
         ('bambang','tayuman'): 14 ,
-        ('bambang','bambang'): 13 ,
+        ('bambang','bambang'): 0 ,
         ('bambang','doroteo Jose'): 14 ,
         ('bambang','carriedo'): 15 ,
         ('bambang','central terminal'): 16 ,
@@ -193,7 +193,7 @@ def get_fare(source, destination):
         ('doroteo Jose','blumentrit'): 16 ,
         ('doroteo Jose','tayuman'): 15 ,
         ('doroteo Jose','bambang'): 14 ,
-        ('doroteo Jose','doroteo Jose'): 13 ,
+        ('doroteo Jose','doroteo Jose'): 0 ,
         ('doroteo Jose','carriedo'): 14 ,
         ('doroteo Jose','central terminal'): 15 ,
         ('doroteo Jose','united nations'): 16 ,
@@ -214,7 +214,7 @@ def get_fare(source, destination):
         ('carriedo','tayuman'): 16 ,
         ('carriedo','bambang'): 15 ,
         ('carriedo','doroteo Jose'): 14 ,
-        ('carriedo','carriedo'): 13 ,
+        ('carriedo','carriedo'): 0 ,
         ('carriedo','central terminal'): 14 ,
         ('carriedo','united nations'): 16,
         ('carriedo','pedro gil'): 17 ,
@@ -235,7 +235,7 @@ def get_fare(source, destination):
         ('central terminal','bambang'): 16 ,
         ('central terminal','doroteo Jose'): 15 ,
         ('central terminal','carriedo'): 14 ,
-        ('central terminal','central terminal'): 13 ,
+        ('central terminal','central terminal'): 0 ,
         ('central terminal','united nations'): 15 ,
         ('central terminal','pedro gil'): 16 ,
         ('central terminal','quirino'): 17 ,
@@ -256,7 +256,7 @@ def get_fare(source, destination):
         ('united nations','doroteo Jose'): 16 ,
         ('united nations','carriedo'): 16 ,
         ('united nations','central terminal'): 15 ,
-        ('united nations','united nations'): 13 ,
+        ('united nations','united nations'): 0 ,
         ('united nations','pedro gil'): 14 ,
         ('united nations','quirino'): 15 ,
         ('united nations','vito cruz'): 16 ,
@@ -277,7 +277,7 @@ def get_fare(source, destination):
         ('pedro gil','carriedo'): 17 ,
         ('pedro gil','central terminal'): 16 ,
         ('pedro gil','united nations'): 14 ,
-        ('pedro gil','pedro gil'): 13 ,
+        ('pedro gil','pedro gil'): 0 ,
         ('pedro gil','quirino'): 14 ,
         ('pedro gil','vito cruz'): 15 ,
         ('pedro gil','gil puyat'): 17 ,
@@ -298,7 +298,7 @@ def get_fare(source, destination):
         ('quirino','central terminal'): 17,
         ('quirino','united nations'): 15 ,
         ('quirino','pedro gil'): 14 ,
-        ('quirino','quirino'): 13 ,
+        ('quirino','quirino'): 0 ,
         ('quirino','vito cruz'): 14 ,
         ('quirino','gil puyat'): 16 ,
         ('quirino','libertad'): 16 ,
@@ -319,7 +319,7 @@ def get_fare(source, destination):
         ('vito cruz','united nations'): 16 ,
         ('vito cruz','pedro gil'): 15 ,
         ('vito cruz','quirino'): 14 ,
-        ('vito cruz','vito cruz'): 13 ,
+        ('vito cruz','vito cruz'): 0 ,
         ('vito cruz','gil puyat'): 15 ,
         ('vito cruz','libertad'): 15 ,
         ('vito cruz','edsa'): 17 ,
@@ -340,7 +340,7 @@ def get_fare(source, destination):
         ('gil puyat','pedro gil'): 17 ,
         ('gil puyat','quirino'): 16 ,
         ('gil puyat','vito cruz'): 15 ,
-        ('gil puyat','gil puyat'): 13 ,
+        ('gil puyat','gil puyat'): 0 ,
         ('gil puyat','libertad'): 14 ,
         ('gil puyat','edsa'): 15 ,
         ('gil puyat','baclaran'): 16 ,
@@ -361,7 +361,7 @@ def get_fare(source, destination):
         ('libertad','quirino'): 16 ,
         ('libertad','vito cruz'): 15 ,
         ('libertad','gil puyat'): 14 ,
-        ('libertad','libertad'): 13 ,
+        ('libertad','libertad'): 0 ,
         ('libertad','edsa'): 15 ,
         ('libertad','baclaran'): 15,
         ('edsa','roosevelt'): 34,
@@ -382,7 +382,7 @@ def get_fare(source, destination):
         ('edsa','vito cruz'): 17 ,
         ('edsa','gil puyat'): 15 ,
         ('edsa','libertad'): 15,
-        ('edsa','edsa'): 13 ,
+        ('edsa','edsa'): 0 ,
         ('edsa','baclaran'): 14 ,
         ('baclaran','roosevelt'): 35 ,
         ('baclaran','balintawak'): 33 ,
@@ -402,8 +402,17 @@ def get_fare(source, destination):
         ('baclaran','gil puyat'): 16 ,
         ('baclaran','libertad'): 15 ,
         ('baclaran','edsa'): 14 ,
-        ('baclaran','baclaran'): 13
+        ('baclaran','baclaran'): 0
     }
+    if (source, destination) in fare_prices:
+        return fare_prices[(source, destination)]
+    
+source = input("From: ")
+destination = input("To: ")
+fare = get_fare(source, destination)
+fare = str(fare)
+    
+print(f"The fare from {source} to {destination} is ₱{fare}")
 
 
 # DROP DOWN MENU FOR WHAT START AND END STATION
