@@ -418,7 +418,10 @@ destination = input("To: ")
 beep_fare = beep_get_fare(source, destination)
 beep_fare = str(beep_fare)
 
-print(f"BEEP fare {source} to {destination} is ₱{beep_fare}")
+if beep_get_fare(source, destination) == None:
+    print("Invalid Trip")
+else:
+    print(f"BEEP fare {source} to {destination} is ₱{beep_fare}")
 
 
 # DROP DOWN MENU FOR WHAT START AND END STATION
