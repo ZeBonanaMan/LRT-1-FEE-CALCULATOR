@@ -819,6 +819,7 @@ destination = input("To: ")
 beep_fare = beep_get_fare(source, destination)
 beep_fare = str(beep_fare)
 sjc_fare = sjc_get_fare(source, destination)
+discounted_fare = sjc_fare - int(sjc_fare)*.20 
 sjc_fare = str(sjc_fare)
 
 
@@ -827,6 +828,7 @@ if beep_get_fare(source, destination) == None:
 else:
     print(f"BEEP Card fare {source} to {destination} is ₱{beep_fare}")
     print(f"Single Journey Card fare {source} to {destination} is ₱{sjc_fare}")
+    print(f"Single Journey Card fare {source} to {destination} is ₱{int(discounted_fare)}")
 
 
 # DROP DOWN MENU FOR WHAT START AND END STATION
