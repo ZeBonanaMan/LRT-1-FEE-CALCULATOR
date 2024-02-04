@@ -1,9 +1,10 @@
 # RAILWAY PRICE CHECKER
 import tkinter as tk
+from tkinter import *
 
 def calculate_fare():
-    source = source_entry.get()
-    destination = destination_entry.get()
+    source = clicked_source.get()
+    destination = clicked_destination.get()
 
     if source == '' or destination == '':
         fare_label.config(text="Please enter both current location and destination.")
@@ -838,19 +839,72 @@ def sjc_get_fare(source, destination):
     }
     if (source, destination) in fare_prices:
         return fare_prices[(source, destination)]
-    
+
 root = tk.Tk()
+root.geometry("700x600")
 root.title("Railway Price Checker")
+
+clicked_source = StringVar() 
+clicked_source.set("Select A Station") 
+clicked_destination = StringVar() 
+clicked_destination.set("Select A Station") 
+
+
+destination_dropdown_list = [
+    'roosevelt', 
+    'balintawak', 
+    'monumento', 
+    '5th avenue', 
+    'r.papa', 
+    'abad santos', 
+    'blumentrit', 
+    'tayuman', 
+    'bambang', 
+    'doroteo Jose', 
+    'carriedo', 
+    'central terminal', 
+    'united nations', 
+    'pedro gil', 
+    'quirino', 
+    'vito cruz', 
+    'gil puyat', 
+    'libertad', 
+    'edsa', 
+    'baclaran'
+]
+
+source_dropdown_list = [
+    'roosevelt', 
+    'balintawak', 
+    'monumento', 
+    '5th avenue', 
+    'r.papa', 
+    'abad santos', 
+    'blumentrit', 
+    'tayuman', 
+    'bambang', 
+    'doroteo Jose', 
+    'carriedo', 
+    'central terminal', 
+    'united nations', 
+    'pedro gil', 
+    'quirino', 
+    'vito cruz', 
+    'gil puyat', 
+    'libertad', 
+    'edsa', 
+    'baclaran'
+]
 
 source_label = tk.Label(root, text="From:")
 source_label.grid(row=0, column=0)
-source_entry = tk.Entry(root)
-source_entry.grid(row=0, column=1)
+source_dropdown = OptionMenu(root , clicked_source , *source_dropdown_list ) 
+source_dropdown.grid(row=0, column=0, columnspan=2) 
 
 destination_label = tk.Label(root, text="To:")
 destination_label.grid(row=1, column=0)
-destination_entry = tk.Entry(root)
-destination_entry.grid(row=1, column=1)
+destination_dropdown = OptionMenu(root , clicked_destination , *destination_dropdown_list ) 
+destination_dropdown.grid(row=1, column=0, columnspan=2) 
 
 calculate_button = tk.Button(root, text="Calculate", command=calculate_fare)
 calculate_button.grid(row=2, column=0, columnspan=2)
@@ -871,10 +925,5 @@ root.mainloop()
 # MAKE ONE FOR MRT 3
 # MAKE ONE FOR PNR
 
-# COMPARE PRICE TO RAILWAY RATIO
-# SHOW SPEED BASED ON PNR AVERAGE
-# SHOW SPEED BASED ON LRT AVERAGE
-# SHOW SPEED BASED ON MRT AVERAGE
-# PORT TO TKINTER
-
+# PORT TO A WEBSITE
 # SHOW POSTS ABOUT WHAT TO DO FROM OTHER PEOPLE IN THE SAME PLACES

@@ -7,6 +7,8 @@ list2 = [15, 20, 25, 30, 35]
 
 
 
-for i in list1:
-    for j in range(len(list1)):
-        print(f"('{i}','{list1[j]}'): {list2[3]} ,")
+# for i in list1:
+#     for j in range(len(list1)):
+#         print(f"('{i}','{list1[j]}'): {list2[3]} ,")
+
+print(list1, end="\n")
