@@ -1,6 +1,8 @@
 # RAILWAY PRICE CHECKER
 import tkinter as tk
 from tkinter import *
+from tkinter import font
+
 
 def calculate_fare():
     source = clicked_source.get()
@@ -24,7 +26,7 @@ def calculate_fare():
     else:
         beep_fare = str(beep_fare)
         sjc_fare = str(sjc_fare)
-        fare_label.config(text=f"\nFrom: {source}, To: {destination}\n\n"
+        fare_label.config(text=f"\nFrom: {source}  To: {destination}\n\n"
                                 f"BEEP Card: ₱{beep_fare}\n"
                                 f"Single Journey Card: ₱{sjc_fare}\n"
                                 f"Student/Senior/PWD: ₱{int(discounted_fare)}")
@@ -846,6 +848,12 @@ root = tk.Tk()
 root.geometry("700x600")
 root.title("Railway Price Checker")
 
+bg_color = "#222c55"
+fg_color = "#FFFFFf"
+label_color = "#ff5823"
+
+root.config(bg=bg_color)
+
 clicked_source = StringVar() 
 clicked_source.set("Select A Station") 
 clicked_destination = StringVar() 
@@ -896,27 +904,32 @@ source_dropdown_list = [
     'Baclaran'
 ]
 
-source_label = tk.Label(root, text="From:")
+source_label = tk.Label(root, text="From:", bg=bg_color, fg=fg_color)
 source_label.pack()
 source_dropdown = OptionMenu(root, clicked_source, *source_dropdown_list) 
+source_dropdown.config(bg=bg_color, fg=label_color)
 source_dropdown.pack() 
 
-destination_label = tk.Label(root, text="To:")
+destination_label = tk.Label(root, text="To:", bg=bg_color, fg=fg_color)
 destination_label.pack()
 destination_dropdown = OptionMenu(root, clicked_destination, *destination_dropdown_list) 
+destination_dropdown.config(bg=bg_color, fg=label_color)
 destination_dropdown.pack() 
 
-spacer = tk.Label()
+spacer = tk.Label(bg=bg_color)
 spacer.pack()
 
-calculate_button = tk.Button(root, text="Calculate", command=calculate_fare)
+calculate_button = tk.Button(root, text="Calculate", command=calculate_fare, bg=bg_color, fg=label_color)
 calculate_button.pack()
 
-fare_label = tk.Label(root, text="")
+fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color)
 fare_label.pack()
 
 root.mainloop()
 
+
+
+# DISPLAY THE VALUE OF CARD ON PNG CARD
 
 # DROP DOWN MENU FOR WHAT START AND END STATION
 
