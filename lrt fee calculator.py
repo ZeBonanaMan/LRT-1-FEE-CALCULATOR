@@ -1,8 +1,9 @@
+#pip install pillow
+
 # RAILWAY PRICE CHECKER
 import tkinter as tk
 from tkinter import *
-from tkinter import font
-
+from PIL import Image, ImageTk
 
 def calculate_fare():
     source = clicked_source.get()
@@ -26,10 +27,11 @@ def calculate_fare():
     else:
         beep_fare = str(beep_fare)
         sjc_fare = str(sjc_fare)
-        fare_label.config(text=f"\nFrom: {source}  To: {destination}\n\n"
-                                f"BEEP Card: ₱{beep_fare}\n"
-                                f"Single Journey Card: ₱{sjc_fare}\n"
-                                f"Student/Senior/PWD: ₱{int(discounted_fare)}")
+        beep_fare_label.config(text=f" BEEP Card: ₱{beep_fare}")
+        sjc_fare_label.config(text=f" Single Journey Card: ₱{sjc_fare}\n" 
+                                   f" Student/Senior/PWD: ₱{int(discounted_fare)}")
+        fare_label.config(text=f"\nFrom: {source}  To: {destination}\n\n")
+
 
 #BEEP CARD
 def beep_get_fare(source, destination):
@@ -845,19 +847,33 @@ def sjc_get_fare(source, destination):
         return fare_prices[(source, destination)]
 
 root = tk.Tk()
-root.geometry("700x600")
+root.geometry("495x495")
 root.title("Railway Price Checker")
 
-bg_color = "#222c55"
+bg_color = "#2d377a"
 fg_color = "#FFFFFf"
 label_color = "#ff5823"
 
-root.config(bg=bg_color)
+background_image = Image.open("background_image.png")
+background_image = ImageTk.PhotoImage(background_image)
+
+beep_image = Image.open("BEEP_cardsprite.png").resize((90,60))
+beep_image = ImageTk.PhotoImage(beep_image)
+
+sjc_image = Image.open("SJC_card_sprite.png").resize((90,60))
+sjc_image = ImageTk.PhotoImage(sjc_image)
+
+root.config()
 
 clicked_source = StringVar() 
 clicked_source.set("Select A Station") 
 clicked_destination = StringVar() 
 clicked_destination.set("Select A Station") 
+
+
+background_label = tk.Label(root, image=background_image)
+background_label.place(x=0, y=0, relwidth=1, relheight=1)
+
 
 destination_dropdown_list = [
     'Roosevelt', 
@@ -904,26 +920,33 @@ source_dropdown_list = [
     'Baclaran'
 ]
 
-source_label = tk.Label(root, text="From:", bg=bg_color, fg=fg_color)
-source_label.pack()
-source_dropdown = OptionMenu(root, clicked_source, *source_dropdown_list) 
-source_dropdown.config(bg=bg_color, fg=label_color)
-source_dropdown.pack() 
-
-destination_label = tk.Label(root, text="To:", bg=bg_color, fg=fg_color)
-destination_label.pack()
-destination_dropdown = OptionMenu(root, clicked_destination, *destination_dropdown_list) 
-destination_dropdown.config(bg=bg_color, fg=label_color)
-destination_dropdown.pack() 
-
 spacer = tk.Label(bg=bg_color)
 spacer.pack()
 
+source_label = tk.Label(root, text="Current Station:", bg=bg_color, fg=fg_color)
+source_label.pack()
+source_dropdown = OptionMenu(root, clicked_source, *source_dropdown_list) 
+source_dropdown.config(bg=bg_color, fg=fg_color)
+source_dropdown.pack() 
+
+destination_label = tk.Label(root, text="Destination:", bg=bg_color, fg=fg_color)
+destination_label.pack()
+destination_dropdown = OptionMenu(root, clicked_destination, *destination_dropdown_list) 
+destination_dropdown.config(bg=bg_color, fg=fg_color)
+destination_dropdown.pack() 
+
 calculate_button = tk.Button(root, text="Calculate", command=calculate_fare, bg=bg_color, fg=label_color)
-calculate_button.pack()
+calculate_button.pack(pady=10)
+
 
 fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color)
-fare_label.pack()
+fare_label.pack(pady=5)
+
+beep_fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color, image=beep_image, compound="left")
+beep_fare_label.pack()
+
+sjc_fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color, image=sjc_image, compound="left")
+sjc_fare_label.pack()
 
 root.mainloop()
 
