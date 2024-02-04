@@ -1,6 +1,31 @@
-
-
 # RAILWAY PRICE CHECKER
+import tkinter as tk
+
+def calculate_fare():
+    source = source_entry.get()
+    destination = destination_entry.get()
+
+    if source == '' or destination == '':
+        fare_label.config(text="Please enter both current location and destination.")
+        return
+    try:
+        beep_fare = beep_get_fare(source, destination)
+        sjc_fare = sjc_get_fare(source, destination)
+        discounted_fare = sjc_fare - int(sjc_fare) * 0.20
+    except KeyError:
+        beep_fare = None
+
+    fare_label.config(text="Hello! Welcome to Trip Fare Calculator")
+
+    if beep_fare is None:
+        fare_label.config(text="Invalid Trip")
+    else:
+        beep_fare = str(beep_fare)
+        sjc_fare = str(sjc_fare)
+        fare_label.config(text=f"BEEP Card fare {source} to {destination} is ₱{beep_fare}\n"
+                                f"Single Journey Card fare {source} to {destination} is ₱{sjc_fare}\n"
+                                f"Student/Senior/PWD fare {source} to {destination} is ₱{int(discounted_fare)}")
+
 #BEEP CARD
 def beep_get_fare(source, destination):
     fare_prices = {
@@ -407,7 +432,7 @@ def beep_get_fare(source, destination):
     if (source, destination) in fare_prices:
         return fare_prices[(source, destination)]
 
-#SINGLE JOURNEY TICKET
+#SINGLE JOURNEY TICKET AND DISCOUNTED
 def sjc_get_fare(source, destination):
     fare_prices = {
         ('roosevelt','roosevelt'): 0,
@@ -814,21 +839,26 @@ def sjc_get_fare(source, destination):
     if (source, destination) in fare_prices:
         return fare_prices[(source, destination)]
     
-source = input("From: ")
-destination = input("To: ")
-beep_fare = beep_get_fare(source, destination)
-beep_fare = str(beep_fare)
-sjc_fare = sjc_get_fare(source, destination)
-discounted_fare = sjc_fare - int(sjc_fare)*.20 
-sjc_fare = str(sjc_fare)
+root = tk.Tk()
+root.title("Railway Price Checker")
 
+source_label = tk.Label(root, text="From:")
+source_label.grid(row=0, column=0)
+source_entry = tk.Entry(root)
+source_entry.grid(row=0, column=1)
 
-if beep_get_fare(source, destination) == None:
-    print("Invalid Trip")
-else:
-    print(f"BEEP Card fare {source} to {destination} is ₱{beep_fare}")
-    print(f"Single Journey Card fare {source} to {destination} is ₱{sjc_fare}")
-    print(f"Single Journey Card fare {source} to {destination} is ₱{int(discounted_fare)}")
+destination_label = tk.Label(root, text="To:")
+destination_label.grid(row=1, column=0)
+destination_entry = tk.Entry(root)
+destination_entry.grid(row=1, column=1)
+
+calculate_button = tk.Button(root, text="Calculate", command=calculate_fare)
+calculate_button.grid(row=2, column=0, columnspan=2)
+
+fare_label = tk.Label(root, text="")
+fare_label.grid(row=3, column=0, columnspan=2)
+
+root.mainloop()
 
 
 # DROP DOWN MENU FOR WHAT START AND END STATION
