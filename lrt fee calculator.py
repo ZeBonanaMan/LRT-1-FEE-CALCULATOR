@@ -897,20 +897,20 @@ source_dropdown_list = [
 ]
 
 source_label = tk.Label(root, text="From:")
-source_label.grid(row=0, column=0)
+source_label.pack(row=0, column=0)
 source_dropdown = OptionMenu(root , clicked_source , *source_dropdown_list ) 
-source_dropdown.grid(row=0, column=0, columnspan=2) 
+source_dropdown.pack() 
 
 destination_label = tk.Label(root, text="To:")
-destination_label.grid(row=1, column=0)
+destination_label.pack(row=1, column=0)
 destination_dropdown = OptionMenu(root , clicked_destination , *destination_dropdown_list ) 
-destination_dropdown.grid(row=1, column=0, columnspan=2) 
+destination_dropdown.pack() 
 
 calculate_button = tk.Button(root, text="Calculate", command=calculate_fare)
-calculate_button.grid(row=2, column=0, columnspan=2)
+calculate_button.pack()
 
 fare_label = tk.Label(root, text="")
-fare_label.grid(row=3, column=0, columnspan=2)
+fare_label.pack()
 
 root.mainloop()
 
