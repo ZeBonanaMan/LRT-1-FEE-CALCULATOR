@@ -27,7 +27,6 @@ def calculate_fare():
                                 f" Student/Senior/PWD: ₱{int(discounted_fare)}")
     fare_label.config(text=f"\nFrom: {source}  To: {destination}\n\n")
 
-
 #BEEP CARD
 def beep_get_fare(source, destination):
     fare_prices = {
@@ -414,14 +413,15 @@ def beep_get_fare(source, destination):
         ('Baclaran','Roosevelt'): 35 ,
         ('Baclaran','Balintawak'): 33 ,
         ('Baclaran','Monumento'): 30 ,
+        ('Baclaran','5th Avenue'): 29 ,
         ('Baclaran','R.Papa'): 28 ,
         ('Baclaran','Abad Santos'): 27 ,
         ('Baclaran','Blumentrit'): 26 ,
         ('Baclaran','Tayuman'): 25 ,
         ('Baclaran','Bambang'): 24 ,
         ('Baclaran','Doroteo Jose'): 23 ,
-        ('Baclaran','Carriedo'): 22 ,
-        ('Baclaran','Central Terminal'): 21 ,
+        ('Baclaran','Carriedo'): 23 ,
+        ('Baclaran','Central Terminal'): 22 ,
         ('Baclaran','United Nations'): 20 ,
         ('Baclaran','Pedro Gil'): 19 ,
         ('Baclaran','Quirino'): 18 ,
@@ -849,13 +849,13 @@ bg_color = "#2d377a"
 fg_color = "#FFFFFf"
 label_color = "#ff5823"
 
-background_image = Image.open("/Images/background_image.png")
+background_image = Image.open('IMAGES/background_image.png')
 background_image = ImageTk.PhotoImage(background_image)
 
-beep_image = Image.open("BEEP_cardsprite.png").resize((90,60))
+beep_image = Image.open("IMAGES/BEEP_cardsprite.png").resize((90,60))
 beep_image = ImageTk.PhotoImage(beep_image)
 
-sjc_image = Image.open("SJC_card_sprite.png").resize((90,60))
+sjc_image = Image.open("IMAGES/SJC_card_sprite.png").resize((90,60))
 sjc_image = ImageTk.PhotoImage(sjc_image)
 
 root.config()
@@ -939,8 +939,6 @@ sjc_fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color, image=sjc_ima
 sjc_fare_label.pack()
 
 root.mainloop()
-
-
 
 # DISPLAY THE VALUE OF CARD ON PNG CARD
 
