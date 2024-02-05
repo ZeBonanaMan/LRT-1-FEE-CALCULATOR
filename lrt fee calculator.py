@@ -8,7 +8,7 @@ from PIL import Image, ImageTk
 def calculate_fare():
     source = clicked_source.get()
     destination = clicked_destination.get()
-
+    
     if source == 'Select A Station' or destination == 'Select A Station':
         fare_label.config(text="\nPlease enter both current location and destination.")
         return
@@ -19,18 +19,13 @@ def calculate_fare():
     except TypeError:
         beep_fare is None
         sjc_fare is None
-
-    fare_label.config(text="Hello! Welcome to Trip Fare Calculator")
-
-    if beep_fare is None or sjc_fare is None:
-        fare_label.config(text="\nInvalid Trip")
-    else:
-        beep_fare = str(beep_fare)
-        sjc_fare = str(sjc_fare)
-        beep_fare_label.config(text=f" BEEP Card: ₱{beep_fare}")
-        sjc_fare_label.config(text=f" Single Journey Card: ₱{sjc_fare}\n" 
-                                   f" Student/Senior/PWD: ₱{int(discounted_fare)}")
-        fare_label.config(text=f"\nFrom: {source}  To: {destination}\n\n")
+ 
+    beep_fare = str(beep_fare)
+    sjc_fare = str(sjc_fare)
+    beep_fare_label.config(text=f" BEEP Card: ₱{beep_fare}")
+    sjc_fare_label.config(text=f" Single Journey Card: ₱{sjc_fare}\n" 
+                                f" Student/Senior/PWD: ₱{int(discounted_fare)}")
+    fare_label.config(text=f"\nFrom: {source}  To: {destination}\n\n")
 
 
 #BEEP CARD
@@ -854,7 +849,7 @@ bg_color = "#2d377a"
 fg_color = "#FFFFFf"
 label_color = "#ff5823"
 
-background_image = Image.open("background_image.png")
+background_image = Image.open("/Images/background_image.png")
 background_image = ImageTk.PhotoImage(background_image)
 
 beep_image = Image.open("BEEP_cardsprite.png").resize((90,60))
@@ -870,10 +865,8 @@ clicked_source.set("Select A Station")
 clicked_destination = StringVar() 
 clicked_destination.set("Select A Station") 
 
-
 background_label = tk.Label(root, image=background_image)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
-
 
 destination_dropdown_list = [
     'Roosevelt', 
@@ -923,29 +916,26 @@ source_dropdown_list = [
 spacer = tk.Label(bg=bg_color)
 spacer.pack()
 
-source_label = tk.Label(root, text="Current Station:", bg=bg_color, fg=fg_color)
-source_label.pack()
+source_label = tk.Label(root, text="Current Station:", bg=bg_color, fg=fg_color, font=('30'))
+source_label.pack(pady=5)
 source_dropdown = OptionMenu(root, clicked_source, *source_dropdown_list) 
-source_dropdown.config(bg=bg_color, fg=fg_color)
+source_dropdown.config(bg=bg_color, fg=fg_color, font=('20'))
 source_dropdown.pack() 
 
-destination_label = tk.Label(root, text="Destination:", bg=bg_color, fg=fg_color)
-destination_label.pack()
+destination_label = tk.Label(root, text="Destination:", bg=bg_color, fg=fg_color, font=('30'))
+destination_label.pack(pady=5)
 destination_dropdown = OptionMenu(root, clicked_destination, *destination_dropdown_list) 
-destination_dropdown.config(bg=bg_color, fg=fg_color)
+destination_dropdown.config(bg=bg_color, fg=fg_color, font=('20'))
 destination_dropdown.pack() 
 
-calculate_button = tk.Button(root, text="Calculate", command=calculate_fare, bg=bg_color, fg=label_color)
+calculate_button = tk.Button(root, text="Calculate", command=calculate_fare, bg=bg_color, fg=label_color, font=('20'))
 calculate_button.pack(pady=10)
 
-
-fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color)
+fare_label = tk.Label(root, text="Hello! Welcome to Trip Fare Calculator", bg=bg_color, fg=fg_color, font=('20'))
 fare_label.pack(pady=5)
-
-beep_fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color, image=beep_image, compound="left")
+beep_fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color, image=beep_image, font=('20'), compound="left")
 beep_fare_label.pack()
-
-sjc_fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color, image=sjc_image, compound="left")
+sjc_fare_label = tk.Label(root, text="", bg=bg_color, fg=fg_color, image=sjc_image, font=('20'), compound="left")
 sjc_fare_label.pack()
 
 root.mainloop()
