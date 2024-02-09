@@ -381,17 +381,17 @@ root = tk.Tk()
 root.geometry("495x495")
 root.title("Railway Price Checker")
 
-bg_color = "#90c72d"
+bg_color = "#662763"
 fg_color = "#FFFFFf"
 label_color = "#ff5823"
 
-background_image = Image.open('IMAGES/background_image.png')
+background_image = Image.open('IMAGES/background_image_2.png')
 background_image = ImageTk.PhotoImage(background_image)
 
 beep_image = Image.open("IMAGES/BEEP_cardsprite.png").resize((90,60))
 beep_image = ImageTk.PhotoImage(beep_image)
 
-sjc_image = Image.open("IMAGES/SJC_card_sprite.png").resize((90,60))
+sjc_image = Image.open("IMAGES/SJC_card_sprite_2.png").resize((90,60))
 sjc_image = ImageTk.PhotoImage(sjc_image)
 
 root.config()
