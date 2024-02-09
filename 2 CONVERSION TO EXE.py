@@ -393,13 +393,13 @@ bg_color = "#662763"
 fg_color = "#FFFFFf"
 label_color = "#ff5823"
 
-background_image = Image.open('background_image_2.png')
+background_image = Image.open(resource_path('background_image_2.png'))
 background_image = ImageTk.PhotoImage(background_image)
 
-beep_image = Image.open("BEEP_cardsprite.png").resize((90,60))
+beep_image = Image.open(resource_path("BEEP_cardsprite.png")).resize((90,60))
 beep_image = ImageTk.PhotoImage(beep_image)
 
-sjc_image = Image.open("SJC_card_sprite_2.png").resize((90,60))
+sjc_image = Image.open(resource_path("SJC_card_sprite_2.png")).resize((90,60))
 sjc_image = ImageTk.PhotoImage(sjc_image)
 
 root.config()
